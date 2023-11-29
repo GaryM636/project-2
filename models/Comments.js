@@ -11,13 +11,6 @@ Comments.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      references: {
-        model: 'user',
-        key: 'userName',
-      },
-    },
     comment: {
       type: DataTypes.STRING,
     },
