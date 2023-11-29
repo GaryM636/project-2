@@ -11,13 +11,6 @@ Comments.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      references: {
-        model: 'user',
-        key: 'userName',
-      },
-    },
     comment: {
       type: DataTypes.STRING,
     },
@@ -31,7 +24,7 @@ Comments.init(
       references: {
         model: 'user',
         key: 'id',
-        onDelete: 'set null',
+        onDelete: 'SET NULL',
       },
     },
     post_id: {
