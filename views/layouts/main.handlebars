@@ -22,7 +22,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/library">Library</a>
                             </li>
@@ -33,16 +33,14 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    {{user.userName}}
+                                    {{userName}}
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="/profile">Profile</a></li>
                                     <li><a class="dropdown-item" href="/posts">Posts</a></li>
                                     <li><a class="dropdown-item" href="/comments">Comments</a></li>
+                                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
                                 </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             {{else}}
                             <li class="nav-item">
