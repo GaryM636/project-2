@@ -2,7 +2,11 @@ const router = require('express').Router();
 
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage');
+    res.render('homepage', {
+      logged_in: req.session.logged_in, //copy and paste on all routes
+      userName: req.session.userName, //copy and paste on all routes
+
+    });
   } catch (err) {
     res.status(500).json(err);
   }
