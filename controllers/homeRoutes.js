@@ -8,4 +8,13 @@ router.get('/', async (req, res) => {
   }
 }); 
 
+
+// Get route for when a user logs in
+router.get('/login', async (req, res) => {
+  if (req.session.logged_in) {
+      res.redirect('/');
+  }
+  res.render('login')
+});
+
 module.exports = router;
