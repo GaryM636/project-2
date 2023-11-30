@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const { Comments, Posts, User } = require('../models');
+
 
 router.get('/', async (req, res) => {
   try {
@@ -18,6 +20,27 @@ router.get('/login', async (req, res) => {
       res.redirect('/');
   }
   res.render('login')
+});
+
+// Get the user who signs in their profile
+router.get('/profile', async (req, res) => {
+  try {
+    const postData = await Posts.findAll({
+      where: {
+        user_id: req.session.user_id
+      }
+    })
+    const post = postData.map(p => p.get({ plain: true }));
+    console.log(post);
+    res.render('profile', {
+      post,
+      logged_in: req.session.logged_in,
+      userName: req.session.userName,
+    })
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
