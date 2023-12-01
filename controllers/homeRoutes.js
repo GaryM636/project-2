@@ -1,15 +1,25 @@
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 const { Comments, Posts, User } = require('../models');
 
 
 router.get('/', async (req, res) => {
   try {
+    const postData = await Posts.findAll({
+      include: {
+        model: User,
+        attributes: ['name', 'id']
+      }
+    });
+
+    const posts = postData.map(p => p.get({ plain: true }))
     res.render('homepage', {
       logged_in: req.session.logged_in, //copy and paste on all routes
       userName: req.session.userName, //copy and paste on all routes
 
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 }); 
@@ -23,7 +33,7 @@ router.get('/login', async (req, res) => {
 });
 
 // Get the user who signs in their profile
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     const postData = await Posts.findAll({
       where: {
