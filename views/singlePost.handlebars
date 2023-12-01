@@ -1,0 +1,14 @@
+{{!-- For the view of a single post when user clicks on it --}}
+
+
+<div class="card mb-3">
+        {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+        <div class="card-body">
+            <h5 class="card-title">{{subject}}</h5>
+            <p class="card-text">{{description}}</p>
+            <p class="card-text"><small class="text-body-secondary">
+                    <a class="text-decoration-none text-dark" href="/users/{{id}}">{{user.name}}</a>
+                    {{format_date date_created}}</small>
+            </p>
+        </div>
+</div>
