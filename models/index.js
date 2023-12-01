@@ -3,6 +3,16 @@ const Comments = require('./Comments');
 const Posts = require('./Posts');
 const Games = require('./Games');
 
+Games.hasMany(Posts, {
+    foreignKey: 'game_id',
+    onDelete: 'CASCADE'
+});
+
+Posts.belongsTo(Games, {
+    foreignKey: 'game_id',
+    onDelete: 'CASCADE'
+});
+
 User.hasMany(Posts, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'

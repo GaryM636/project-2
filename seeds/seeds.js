@@ -1,12 +1,15 @@
 const sequelize = require('../config/connection');
 const { User, Posts, Games } = require('../models');
 
+const gameData = require('./gameData.json');
 const userData = require('./userData.json');
 const postData = require('./postData.json');
-const gameData = require('./gameData.json');
+
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
+
+  const games = await Games.bulkCreate(gameData);
 
   const users = await User.bulkCreate(userData, {
     individualHooks: true,
@@ -20,7 +23,6 @@ const seedDatabase = async () => {
     });
   }));
 
-  const games = await Games.bulkCreate(gameData);
 
   process.exit(0);
 };
