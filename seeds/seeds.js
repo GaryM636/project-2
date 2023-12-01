@@ -1,9 +1,10 @@
 const sequelize = require('../config/connection');
-const { User, Posts } = require('../models');
+const { User, Posts, Games } = require('../models');
 
 const userData = require('./userData.json');
 const postData = require('./postData.json');
-// Reworked the seeds so that the posts would work better for me and it loads faster when npm run seed is run
+const gameData = require('./gameData.json');
+
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
@@ -12,15 +13,16 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  let posts = [];
-
-  for (const post of postData) {
-    posts.push(await Posts.create({
+  const posts = await Promise.all(postData.map(async (post) => {
+    return await Posts.create({
       ...post,
       user_id: users[Math.floor(Math.random() * users.length)].id,
-    }));
-  }
+    });
+  }));
+
+  const games = await Games.bulkCreate(gameData);
+
   process.exit(0);
-}
+};
 
 seedDatabase();

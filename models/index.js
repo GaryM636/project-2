@@ -1,6 +1,7 @@
 const User = require('./User');
 const Comments = require('./Comments');
 const Posts = require('./Posts');
+const Games = require('./Games');
 
 User.hasMany(Posts, {
     foreignKey: 'user_id',
@@ -30,4 +31,4 @@ Comments.belongsTo(Posts, {
     onDelete: 'CASCADE'
 });
 
-module.exports = { User, Comments, Posts }
+module.exports = { User, Comments, Posts , Games }
