@@ -1,17 +1,25 @@
 {{!-- Renders a homepage with different users posts show on it. --}}
 {{!-- If we have time we could work in a system that shows most interacted posts at the top --}}
-
-<div class="container border mt-4">
-  {{!-- The card container for each of the users post --}}
-  {{#each post}}
-  <div class="col-6">
-    <div class="card mb-3 mt-4">
-      <div class="card-body">
-        <h5 class="card-title">{{subject}}</h5>
-        <p class="card-text">{{description}}</p>
-        <p class="card-text"><small class="text-body-secondary">{{format_date date_created}}</small></p>
-      </div>
+<div class="container border mb-3">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-6">
+            <h2 class="text-center">Today's top posts on Haze</h2>
+        </div>
     </div>
-  </div>
-  {{/each}}
 </div>
+
+{{#each post}}
+<div class="card mb-3">
+    <a class="text-decoration-none text-dark" href="/posts/{{id}}">
+        {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+        <div class="card-body">
+            <h5 class="card-title">{{subject}}</h5>
+            <p class="card-text">{{description}}</p>
+            <p class="card-text"><small class="text-body-secondary">
+                    <a class="text-decoration-none text-dark" href="/users/{{id}}">{{user.name}}</a>
+                    {{format_date date_created}}</small>
+            </p>
+        </div>
+    </a>
+</div>
+{{/each}}
