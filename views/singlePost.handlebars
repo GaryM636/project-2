@@ -1,14 +1,27 @@
 {{!-- For the view of a single post when user clicks on it --}}
 
+<div class="container mb-3">
+    <div class="row d-flex justify-content-center border">
+        <div class="col-9">
+            <h2>{{game.game_title}}</h2>
+        </div>
+    </div>
+</div>
+<div class="container mb-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-9 ">
+            <img src="{{game.banner}}" class="card-img-top" alt="{{game.game_title}}">
+        </div>
+    </div>
+</div>
 
 <div class="card mb-3">
-        {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-        <div class="card-body">
-            <h5 class="card-title">{{subject}}</h5>
-            <p class="card-text">{{description}}</p>
-            <p class="card-text"><small class="text-body-secondary">
-                    <a class="text-decoration-none text-dark" href="/users/{{id}}">{{user.name}}</a>
-                    {{format_date date_created}}</small>
-            </p>
-        </div>
+    <div class="card-body">
+        <h5 class="card-title">{{subject}}</h5>
+        <p class="card-text">{{description}}</p>
+        <p class="card-text"><small class="text-body-secondary">
+                <a class="text-decoration-none text-dark" href="/users/{{user.id}}">{{user.name}}</a>
+                {{format_date date_created}}</small>
+        </p>
+    </div>
 </div>

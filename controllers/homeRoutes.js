@@ -1,18 +1,23 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { Comments, Posts, User } = require('../models');
+const { Comments, Posts, User, Games } = require('../models');
 
 
 router.get('/', async (req, res) => {
   try {
     const postData = await Posts.findAll({
-      include: {
+      include: [{
         model: User,
         attributes: ['name', 'id']
-      }
+      },
+      {
+        model: Games,
+        attributes: ['game_title', 'banner', 'cover', 'id']
+      }]
     });
 
     const post = postData.map(p => p.get({ plain: true }))
+    console.log(post);
     res.render('homepage', {
       post,
       logged_in: req.session.logged_in, //copy and paste on all routes
@@ -57,10 +62,14 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Posts.findByPk(req.params.id, {
-      include: {
+      include: [{
         model: User,
         attributes: ['name', 'id']
-      }
+      },
+      {
+        model: Games,
+        attributes: ['game_title', 'banner', 'cover', 'id']
+      }]
 
     })
     const post = postData.get({ plain: true });
@@ -76,5 +85,26 @@ router.get('/posts/:id', async (req, res) => {
 });
 
 // Get route for a another users profile
+router.get('/users/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include: {
+        model: Posts,
+        attributes: ['subject', 'description', 'date_created']
+      },
+    });
+    const user = userData.get({ plain: true })
+    res.render('user', {
+      ...user,
+      logged_in: req.session.logged_in,
+      userName: req.session.userName,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err.message);
+  }
+})
+
+
 
 module.exports = router;
