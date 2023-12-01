@@ -1,27 +1,28 @@
 {{!-- This container will render the userName of whoever logs into their profile for Haze --}}
+
 <div class="container border">
   <div class="row d-flex justify-content-center align-items-center">
-    <div class="col-5 text-center">
-      Hello, {{userName}}
+    <div class="col-5 text-center text-light">
+      <h2>Hello, {{userName}}</h2>
 
     </div>
   </div>
-  <div class="row d-flex justify-content-center align-items-center">
+  <div class="row d-flex justify-content-center align-items-center text-light">
     <div class="col-5 text-center">
-      Welcome to the Haze community
+      <em>Welcome to the Haze community</em>
     </div>
   </div>
 </div>
 
-<div class="container border mt-4">
+<div class="container border border-dark mt-4">
   {{!-- The card container for each of the users post --}}
   {{#each post}}
   <div class="col-6">
-    <div class="card mb-3 mt-4">
-      <div class="card-body">
-        <h5 class="card-title">{{subject}}</h5>
+    <div class="card mb-3 mt-4" id="posts" >
+      <div class="card-body text-light" id="posts" style="background-color:#261720;">
+        <h5 class="card-header border-bottom text-center">{{subject}}</h5>
         <p class="card-text">{{description}}</p>
-        <p class="card-text"><small class="text-body-secondary">{{format_date date_created}}</small></p>
+        <p class="card-footer border-top text-end"><small class="text-light">{{format_date date_created}}</small></p>
       </div>
     </div>
   </div>
