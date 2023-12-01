@@ -1,0 +1,32 @@
+[
+    {
+        "game_title": "Call of Duty: Modern Warfare III",
+        "banner": "https://images.igdb.com/igdb/image/upload/t_original/scnzhw.jpg",
+        "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co7ctx.png",
+        "popularity" : "1"
+    },
+    {
+        "game_title": "Super Mario Bros. Wonder",
+        "banner": "https://images.igdb.com/igdb/image/upload/t_original/ar2dcn.jpg",
+        "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co6nnl.png",
+        "popularity" : "2"
+    },
+    {
+        "game_title": "Halo Infinite",
+        "banner": "https://images.igdb.com/igdb/image/upload/t_original/ar5nj.jpg",
+        "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2dto.png",
+        "popularity" : "3"
+    },
+    {
+        "game_title": "The Legend of Zelda: Breath of the Wild",
+        "banner": "https://images.igdb.com/igdb/image/upload/t_original/ar4t1.jpg",
+        "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.png",
+        "popularity" : "4"
+    },
+    {
+        "game_title": "Cyberpunk 2077",
+        "banner": "https://images.igdb.com/igdb/image/upload/t_original/ar6qv.jpg",
+        "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co7497.png",
+        "popularity" : "5"
+    }
+]
