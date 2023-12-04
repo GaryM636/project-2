@@ -17,7 +17,6 @@ router.get('/', async (req, res) => {
     });
 
     const post = postData.map(p => p.get({ plain: true }))
-    console.log(post);
     res.render('homepage', {
       post,
       logged_in: req.session.logged_in, //copy and paste on all routes
