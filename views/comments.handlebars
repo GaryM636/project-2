@@ -1,0 +1,32 @@
+<div>
+    <div>
+        <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
+            <div class="card-body text-light" id="posts">
+                <h5 class="card-header border-bottom text-center">{{subject}}</h5>
+                <p class="card-text">{{description}}</p>
+                <p class="card-footer border-top text-end"><small class="text-light">{{format_date
+                        date_created}}</small></p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Comments</h2>
+        {{#each comments}}
+        <div>
+            <p>{{this.text}}</p>
+            <p>{{this.author}}</p>
+        </div>
+        {{/each}}
+        <form id="addComment">
+            <div class="mb-3">
+                <label for="postDescription" class="form-label">
+                    New Comment
+                </label>
+                <input id="postDescription" type="text" class="form-control" placeholder="Description">
+            </div>
+            <div>
+                <button id="post-btn" type="submit" class="btn btn-primary">Comment</button>
+            </div>
+        </form>
+    </div>
+</div>
