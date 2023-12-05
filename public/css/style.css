@@ -1,3 +1,11 @@
+:root {
+   --bg-el : rgba(60, 54, 92, 0.8);
+   --bkdrop : rgba(63, 63, 63, 0.5);
+   --lists : rgba(15, 21, 32, 0.37);
+   --text : whitesmoke;
+}
+
+
 *{
     margin: 0;
     padding: 0; 
@@ -12,16 +20,43 @@ body {
 }
 
 #posts {
-    border-radius: 23px;
+    border-radius: 0.375rem;
     margin-right: 20px;
 }
 
 #aside{
     margin-top: 25px;
-    background: rgba(60, 54, 92, 0.8);
+    background: var(--bg-el);
 }
 
 #lists{
-    background-color: rgba(15, 21, 32, 0.37);
-    color: white;
+    background-color: var(--lists);
+    color: var(--text);
+}
+
+.tbox {
+    background: var(--bg-el);
+    border-radius: 0.375rem;
+    max-width: 98%;
+}
+
+.bgdrop {
+    background-color: var(--bkdrop);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 23px;
+}
+
+.dropdown-menu {
+    background-color: var(--bg-el)
+}
+
+.dropdown-item {
+    color: var(--text);
+}
+
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
 }
