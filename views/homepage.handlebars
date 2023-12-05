@@ -8,12 +8,12 @@
     </div>
 </div>
 
-{{#each post}}
+{{#each games}}
 <div class="card mb-3" id="posts" style="background-color:#1c1726;">
-    <a class="text-decoration-none text-light" href="/posts/{{id}}">
-        <img src="{{game.banner}}" class="card-img-top" alt="{{game.game_title}}">
+    <a class="text-decoration-none text-light" href="/games/{{id}}">
+        <img src="{{banner}}" class="card-img-top" alt="{{game_title}}">
         <div class="card-body" id="posts">
-            <h2>{{game.game_title}}</h2>
+            <h2>{{game_title}}</h2>
         </div>
     </a>
 </div>

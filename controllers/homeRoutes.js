@@ -2,27 +2,20 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Comments, Posts, User, Games } = require('../models');
 
-
+// Renders the homepage with a banner for each game in the seeds or created
 router.get('/', async (req, res) => {
   try {
-    const postData = await Posts.findAll({
-      include: [{
-        model: User,
-        attributes: ['name', 'id']
-      },
-      {
-        model: Games,
-        attributes: ['game_title', 'banner', 'cover', 'id']
-      }]
+    const gameData = await Games.findAll({
+      included: {
+        model: Posts
+      }
     });
-
-    const post = postData.map(p => p.get({ plain: true }))
+    const games = gameData.map(p => p.get({ plain: true }));
+    console.log("games", games);
     res.render('homepage', {
-      post,
-      logged_in: req.session.logged_in, //copy and paste on all routes
-      userName: req.session.userName, //copy and paste on all routes
-
-    });
+      games,
+      logged_in: req.session.logged_in
+    })
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -58,22 +51,16 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 // Get route for a single post view
-router.get('/posts/:id', async (req, res) => {
+router.get('/games/:id', async (req, res) => {
   try {
-    const postData = await Posts.findByPk(req.params.id, {
+    const gameData = await Games.findByPk(req.params.id, {
       include: [{
-        model: User,
-        attributes: ['name', 'id']
-      },
-      {
-        model: Games,
-        attributes: ['game_title', 'banner', 'cover', 'id']
+        model: Posts, include: [User]
       }]
-
     })
-    const post = postData.get({ plain: true });
-    res.render('singlePost', {
-      ...post,
+    const game = gameData.get({ plain: true });
+    res.render('singleGame', {
+      ...game,
       logged_in: req.session.logged_in,
       userName: req.session.userName,
     })
@@ -102,8 +89,6 @@ router.get('/users/:id', async (req, res) => {
     console.log(err);
     res.status(500).json(err.message);
   }
-})
-
-
+});
 
 module.exports = router;
