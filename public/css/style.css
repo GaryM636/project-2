@@ -1,10 +1,9 @@
 :root {
-    --bg-el : rgba(60, 54, 92, 0.8);
-    --bkdrop : rgba(63, 63, 63, 0.5);
+    --bg-el : rgba(19, 3, 28, 0.8);
+    --bkdrop : rgba(0, 0, 0, 0.411);
     --lists : rgba(15, 21, 32, 0.37);
     --text : whitesmoke;
  }
- 
  
  *{
      margin: 0;
