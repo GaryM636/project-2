@@ -6,11 +6,22 @@
 }
 
 body {
-    background: radial-gradient(#A379A5, #6C376F);
+    background: radial-gradient(#8879a5, #54376f);
     height:2000px
 
 }
 
 #posts {
     border-radius: 23px;
+    margin-right: 20px;
+}
+
+#aside{
+    margin-top: 25px;
+    background: rgba(60, 54, 92, 0.8);
+}
+
+#lists{
+    background-color: rgba(15, 21, 32, 0.37);
+    color: white;
 }
