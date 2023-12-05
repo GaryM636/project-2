@@ -24,6 +24,10 @@ body {
     margin-right: 20px;
 }
 
+#topics {
+    border-radius: 0.375rem;
+}
+
 #aside{
     margin-top: 25px;
     background: var(--bg-el);
