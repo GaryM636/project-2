@@ -4,33 +4,38 @@
             <div class="card-body text-light" id="posts">
                 <h5 class="card-header border-bottom text-center">{{post.subject}}</h5>
                 <p class="card-text">{{post.description}}</p>
-                <p class="card-footer border-top text-end"><small class="text-light">{{format_date date_created}}</small></p>
+                <p class="card-footer border-top text-end"><small class="text-light">{{format_date
+                        date_created}}</small></p>
             </div>
         </div>
     </div>
-    <div>
-    <h2>Comments</h2>
-    {{#each comments}}
-    <div class="card mb-3 mt-4" id="comments" style="background-color:#1c1726;">
-        <div class="card-body text-light">
-            <p class="card-header border-bottom text-center">{{this.description}}</p>
-            <p class="card-footer border-top text-end"><small class="text-light">{{format_date date_created}}</small></p>
+    <div class="card text-light" id="info" style="background-color:#1c1726;">
+        <h2 class="px-1">Comments</h2>
+        {{#each comments}}
+        <div class="card mb-3 mt-4" id="comments" style="background-color:#1c1726;">
+            <div class="card-body text-light">
+                <p class="card-header border-bottom text-center">{{this.description}}</p>
+                <p class="card-footer border-top text-end"><small class="text-light">
+                        {{user.name}}
+                        {{format_date date_created}}</small>
+                </p>
+            </div>
         </div>
+        {{/each}}
     </div>
-    {{/each}}
-</div>
-<script>
-    console.log("Comments:", {{comments}});
-</script>
+    <script>
+        console.log("Comments:", {{ comments }});
+    </script>
+    <div class="card mb-3 mt-4" id="info" style="background-color:#1e153098;">
         <form id="addComment">
-            <div class="mb-3">
+            <div class="mb-3 text-light">
                 <label for="postDescription" class="form-label">
                     New Comment
                 </label>
                 <input id="postDescription" type="text" class="form-control" placeholder="Description">
             </div>
             <div>
-                <button id="post-btn" type="submit" class="btn btn-primary">Comment</button>
+                <button id="post-btn" type="submit" class="btn btn-outline-light">Comment</button>
             </div>
         </form>
     </div>
