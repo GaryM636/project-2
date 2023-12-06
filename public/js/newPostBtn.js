@@ -20,4 +20,7 @@ addPost.addEventListener('submit', async e => {
     } else {
         alert('Failed to create the new post');
     }
+
+
+    
 });
