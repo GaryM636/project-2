@@ -1,5 +1,5 @@
 {{!-- For the view of a single game's page when user clicks on it --}}
-
+<div class="bgdrop">
 {{!-- Renders the games title to the top of the page --}}
 <div class="container d-flex justify-content-center mb-5">
     <div class="row">
@@ -19,7 +19,7 @@
 </div>
 
 {{!-- This is going to be the card that stores the new post that is created --}}
-<div class="container"></div>
+<div class="container">
 {{#each posts }}
 <div id="post-container">
     <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
@@ -33,6 +33,7 @@
 </div>
 {{/each}}
 </div>
+
 
 
 {{!-- This allows a signed in user to create a new post under a certain game or topic --}}
@@ -64,3 +65,4 @@
 
 
 <script src="/js/newPostBtn.js"></script>
+</div>
