@@ -19,19 +19,23 @@
 </div>
 
 {{!-- This is going to be the card that stores the new post that is created --}}
-<div class="container"></div>
-{{#each posts }}
-<div id="post-container">
-    <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
-        <div class="card-body text-light" id="posts">
-            <h5 class="card-header border-bottom text-center">{{subject}}</h5>
-            <p class="card-text">{{description}}</p>
-            <p class="card-footer border-top text-end"><small class="text-light">{{format_date date_created}}</small>
-            </p>
-        </div>
+<div class="container">
+    {{#each posts }}
+    <div id="post-container">
+        <a class="text-decoration-none text-dark" href="/users/{{user.id}}">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{subject}}</h5>
+                    <p class="card-text">{{description}}</p>
+                    <p class="card-text"><small class="text-body-secondary">
+                            {{user.name}}
+                            {{format_date date_created}}</small>
+                    </p>
+                </div>
+            </div>
+        </a>
     </div>
-</div>
-{{/each}}
+    {{/each}}
 </div>
 
 
@@ -39,22 +43,22 @@
 <div class="card" id="info" style="background-color:#1e153098;">
     {{#if logged_in}}
     <form id="addPost" class="form project">
-            <div class="mb-3 text-light">
-                <label for="postSubject" class="form project-form">
-                    New post Subject
-                </label>
-                <input id="postSubject" type="text" class="form-control" placeholder="Subject">
-            </div>
-            <div class="mb-3 text-light">
-                <label for="postDescription" class="form-label">
-                    New Post Description
-                </label>
-                <input id="postDescription" type="text" class="form-control" placeholder="Description">
-            </div>
-            <div>
-                <input type="hidden" value="{{id}}" id="gameId">
-                <button id="post-btn" type="submit" class="btn btn-outline-light">Add New Post</button>
-            </div>
+        <div class="mb-3 text-light">
+            <label for="postSubject" class="form project-form">
+                New post Subject
+            </label>
+            <input id="postSubject" type="text" class="form-control" placeholder="Subject">
+        </div>
+        <div class="mb-3 text-light">
+            <label for="postDescription" class="form-label">
+                New Post Description
+            </label>
+            <input id="postDescription" type="text" class="form-control" placeholder="Description">
+        </div>
+        <div>
+            <input type="hidden" value="{{id}}" id="gameId">
+            <button id="post-btn" type="submit" class="btn btn-outline-light">Add New Post</button>
+        </div>
     </form>
     {{else}}
     <h5 id="info" class="text-center text-light">Want to join the discussion?</h5>
