@@ -32,11 +32,14 @@
       {{/each}}
     </div>
     <div class="card d-flex text-light" id="aside" style="width: 18rem;">
-      <img class="card-img-top" src="{{profilePic}}" alt="profile">
+      {{#if profilePic}}
+      <img class="card-img-top" src="data:image/png;base64,{{profilePic}}" alt="profile">
+      {{else}}
+      <img class="card-img-top" src="https://via.placeholder.com/150" alt="default-profile-pic">
+      {{/if}}
       <div class="card-body">
         <h5 class="card-title">{{user_name}}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
+        <p class="card-text">{{bio}}</p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item" id="lists">Cras justo odio</li>
@@ -51,13 +54,17 @@
   </div>
 </div>
 
-<form>
+<form id="profile-form">
+  <input type="hidden" value="{{id}}" id="user-id">
   <div enctype="multipart/form-data" >
        <label for="img-up">Upload image here:</label>
-        <input type="file" id="myFile" name="filename" accept="image/*">
+        <input type="file" id="profile-pic" name="filename" accept="image/*">
       </div>
       <div>
-
+        <label for="bio">Bio:</label>
+        <input type="text" id="bio" name="bio">
       </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<script src="/js/profile.js"></script>
