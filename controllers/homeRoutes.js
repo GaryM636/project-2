@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     res.render('homepage', {
       games,
       logged_in: req.session.logged_in,
-      userName: req.session.userName,
+      userName: req.session.userName
     })
   } catch (err) {
     console.log(err);
