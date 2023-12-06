@@ -1,0 +1,74 @@
+{{!-- For the view of a single game's page when user clicks on it --}}
+<div class="bgdrop">
+    {{!-- Renders the games title to the top of the page --}}
+    <div class="container d-flex justify-content-center mb-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="fw-bold fs-1 text-light">{{game_title}}</h1>
+            </div>
+        </div>
+    </div>
+
+    {{!-- Renders the games banner photo to the top of the page as well --}}
+    <div class="container mb-3">
+        <div class="row d-flex justify-content-center">
+            <div class="col-9 ">
+                <img src="{{banner}}" class="card-img-top" alt="{{game_title}}">
+            </div>
+        </div>
+    </div>
+
+    {{!-- This is going to be the card that stores the new post that is created --}}
+    <div class="container">
+        {{#each posts }}
+        <div id="post-container">
+            <a class="text-decoration-none" href="/users/{{user.id}}">
+                <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
+                    <div class="card-body text-light" id="posts">
+                        <a href="/posts/{{id}}">
+                            <h5 class="card-header border-bottom text-center text-link">{{subject}}</h5>
+                        </a>
+                        <p class="card-text">{{description}}</p>
+                        <p class="card-footer border-top text-end"><small class="text-light">
+                                {{user.name}}
+                                {{format_date date_created}}</small>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    </div>
+
+
+
+    {{!-- This allows a signed in user to create a new post under a certain game or topic --}}
+    <div class="card" id="info" style="background-color:#1e153098;">
+        {{#if logged_in}}
+        <form id="addPost" class="form project p-3">
+            <div class="mb-3 text-light">
+                <label for="postSubject" class="form project-form">
+                    New post Subject
+                </label>
+                <input id="postSubject" type="text" class="form-control" placeholder="Subject">
+            </div>
+            <div class="mb-3 text-light">
+                <label for="postDescription" class="form-label">
+                    New Post Description
+                </label>
+                <input id="postDescription" type="text" class="form-control" placeholder="Description">
+            </div>
+            <div>
+                <input type="hidden" value="{{id}}" id="gameId">
+                <button id="post-btn" type="submit" class="btn btn-outline-light">Add New Post</button>
+            </div>
+        </form>
+        {{else}}
+        <h5 id="info" class="text-center text-light">Want to join the discussion?</h5>
+        <p class="text-center text-light">You must be logged in to post</p>
+        {{/if}}
+    </div>
+
+
+    <script src="/js/newPostBtn.js"></script>
+</div>
