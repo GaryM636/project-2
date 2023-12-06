@@ -34,16 +34,16 @@ router.get('/login', async (req, res) => {
 // Get the user who signs in their profile
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    const postData = await Posts.findAll({
-      where: {
-        user_id: req.session.user_id
-      }
+    const postData = await User.findByPk( req.session.user_id,{
+      include: [{
+        model: Posts,
+      }]
     })
-    const post = postData.map(p => p.get({ plain: true }));
+    const user = postData.get ({ plain: true });
+    console.log("user", user);
     res.render('profile', {
-      post,
+      ...user,
       logged_in: req.session.logged_in,
-      userName: req.session.userName,
     })
   } catch (err) {
     console.log(err.message);
