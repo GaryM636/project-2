@@ -4,7 +4,7 @@
     <div class="container d-flex justify-content-center mb-5">
         <div class="row">
             <div class="col-12">
-                <h1 class="fw-bold fs-1">{{game_title}}</h1>
+                <h1 class="fw-bold fs-1 text-light">{{game_title}}</h1>
             </div>
         </div>
     </div>
@@ -22,14 +22,14 @@
     <div class="container">
         {{#each posts }}
         <div id="post-container">
-            <a class="text-decoration-none text-dark" href="/users/{{user.id}}">
+            <a class="text-decoration-none" href="/users/{{user.id}}">
                 <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
                     <div class="card-body text-light" id="posts">
                         <a href="/posts/{{id}}">
                             <h5 class="card-header border-bottom text-center text-link">{{subject}}</h5>
                         </a>
                         <p class="card-text">{{description}}</p>
-                        <p class="card-footer border-top d-flex justify-content-between"><small class="text-light">
+                        <p class="card-footer border-top text-end"><small class="text-light">
                                 {{user.name}}
                                 {{format_date date_created}}</small>
                         </p>
