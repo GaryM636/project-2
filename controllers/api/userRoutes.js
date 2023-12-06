@@ -1,8 +1,12 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const multer  = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage,})
+
+
 
 // /api/users
-
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -59,6 +63,25 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.put('/profile/:id', upload.single('profile_pic'), async (req, res) => {
+  try {
+    const userData = await User.update(
+      {
+        bio: req.body.bio,
+        profilePic: req.file.buffer
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 

@@ -39,7 +39,10 @@ router.get('/profile', withAuth, async (req, res) => {
         model: Posts,
       }]
     })
-    const user = postData.get ({ plain: true });
+    let user = postData.get ({ plain: true });
+    if (user.profilePic) {
+      user.profilePic = user.profilePic.toString('base64');
+    }
     console.log("user", user);
     res.render('profile', {
       ...user,
