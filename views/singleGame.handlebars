@@ -19,12 +19,13 @@
 </div>
 
 {{!-- This is going to be the card that stores the new post that is created --}}
-<div class="container"></div>
 {{#each posts }}
 <div id="post-container">
     <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
         <div class="card-body text-light" id="posts">
-            <h5 class="card-header border-bottom text-center">{{subject}}</h5>
+            <a href="/posts/{{id}}">
+                <h5 class="card-header border-bottom text-center text-link">{{subject}}</h5>
+            </a>
             <p class="card-text">{{description}}</p>
             <p class="card-footer border-top text-end"><small class="text-light">{{format_date date_created}}</small>
             </p>
@@ -32,7 +33,7 @@
     </div>
 </div>
 {{/each}}
-</div>
+
 
 
 {{!-- This allows a signed in user to create a new post under a certain game or topic --}}

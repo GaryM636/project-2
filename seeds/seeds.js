@@ -4,6 +4,7 @@ const { User, Posts, Games } = require('../models');
 const gameData = require('./gameData.json');
 const userData = require('./userData.json');
 const postData = require('./postData.json');
+const commentData = require('./commentData.json')
 
 
 const seedDatabase = async () => {
@@ -21,6 +22,8 @@ const seedDatabase = async () => {
       ...post,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
+    
+
   }));
 
 
