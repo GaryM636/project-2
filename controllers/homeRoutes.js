@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     res.render('homepage', {
       games,
       logged_in: req.session.logged_in,
-      userName: req.session.userName
+      user_name: req.session.userName
     })
   } catch (err) {
     console.log(err);
@@ -44,6 +44,7 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('profile', {
       ...user,
       logged_in: req.session.logged_in,
+      user_name: req.session.userName,
     })
   } catch (err) {
     console.log(err.message);
@@ -63,7 +64,7 @@ router.get('/games/:id', async (req, res) => {
     res.render('singleGame', {
       ...game,
       logged_in: req.session.logged_in,
-      userName: req.session.userName,
+      user_name: req.session.userName,
     })
   } catch (err) {
     console.log(err);
@@ -77,14 +78,14 @@ router.get('/users/:id', async (req, res) => {
     const userData = await User.findByPk(req.params.id, {
       include: {
         model: Posts,
-        attributes: ['subject', 'description', 'date_created']
       },
     });
     const user = userData.get({ plain: true })
+    console.log("user-data", user);
     res.render('user', {
       ...user,
       logged_in: req.session.logged_in,
-      userName: req.session.userName,
+      user_name: req.session.userName,
     })
   } catch (err) {
     console.log(err);
