@@ -1,23 +1,21 @@
 {{!-- Renders a homepage with different users posts show on it. --}}
 {{!-- If we have time we could work in a system that shows most interacted posts at the top --}}
-
-<div class="container border mb-3">
-    <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-6">
-            <h2 class="text-center">Today's top posts on Haze</h2>
+<div class="bgdrop">
+    <div class="container tbox mb-3">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-6">
+                <h2 class="text-center text-light">Today's top game communities on Haze</h2>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="bgdrop">
-{{#each games}}
-<div class="card mb-3" id="posts" style="background-color:#1c1726;">
-    <a class="text-decoration-none text-light" href="/games/{{id}}">
-        <img src="{{banner}}" class="card-img-top" alt="{{game_title}}">
-        <div class="card-body" id="posts">
-            <h2>{{game_title}}</h2>
-        </div>
-    </a>
-</div>
-{{/each}}
+    {{#each games}}
+    <div class="card mb-3" id="posts" style="background-color:#1c1726;">
+        <a class="text-decoration-none text-light" href="/games/{{id}}">
+            <img src="{{banner}}" class="card-img-top" alt="{{game_title}}">
+            <div class="card-body" id="posts">
+                <h2>{{game_title}}</h2>
+            </div>
+        </a>
+    </div>
+    {{/each}}
 </div>

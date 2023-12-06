@@ -19,37 +19,37 @@
 </div>
 
 {{!-- This is going to be the card that stores the new post that is created --}}
-<div class="container"></div>
-{{#each posts }}
-<div id="post-container">
-    <a class="text-decoration-none text-dark" href="/users/{{user.id}}">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{{subject}}</h5>
-                <p class="card-text">{{description}}</p>
-                <p class="card-text"><small class="text-body-secondary">
-                        {{user.name}}
-                        {{format_date date_created}}</small>
-                </p>
+<div class="container">
+    {{#each posts }}
+    <div id="post-container">
+        <a class="text-decoration-none text-dark" href="/users/{{user.id}}">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{subject}}</h5>
+                    <p class="card-text">{{description}}</p>
+                    <p class="card-text"><small class="text-body-secondary">
+                            {{user.name}}
+                            {{format_date date_created}}</small>
+                    </p>
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
+    {{/each}}
 </div>
-{{/each}}
-
 
 
 {{!-- This allows a signed in user to create a new post under a certain game or topic --}}
-<div class="card">
+<div class="card" id="info" style="background-color:#1e153098;">
     {{#if logged_in}}
     <form id="addPost" class="form project">
-        <div class="mb-3">
+        <div class="mb-3 text-light">
             <label for="postSubject" class="form project-form">
                 New post Subject
             </label>
             <input id="postSubject" type="text" class="form-control" placeholder="Subject">
         </div>
-        <div class="mb-3">
+        <div class="mb-3 text-light">
             <label for="postDescription" class="form-label">
                 New Post Description
             </label>
@@ -57,11 +57,12 @@
         </div>
         <div>
             <input type="hidden" value="{{id}}" id="gameId">
-            <button id="post-btn" type="submit" class="btn btn-primary">Add New Post</button>
+            <button id="post-btn" type="submit" class="btn btn-outline-light">Add New Post</button>
         </div>
     </form>
     {{else}}
-    <h5>You must be logged in to create a new post</h5>
+    <h5 id="info" class="text-center text-light">Want to join the discussion?</h5>
+    <p class="text-center text-light">You must be logged in to post</p>
     {{/if}}
 </div>
 
