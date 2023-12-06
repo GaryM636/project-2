@@ -1,5 +1,5 @@
 {{!-- For the view of a single game's page when user clicks on it --}}
-
+<div class="bgdrop">
 {{!-- Renders the games title to the top of the page --}}
 <div class="container d-flex justify-content-center mb-5">
     <div class="row">
@@ -39,6 +39,7 @@
 </div>
 
 
+
 {{!-- This allows a signed in user to create a new post under a certain game or topic --}}
 <div class="card" id="info" style="background-color:#1e153098;">
     {{#if logged_in}}
@@ -68,3 +69,4 @@
 
 
 <script src="/js/newPostBtn.js"></script>
+</div>
