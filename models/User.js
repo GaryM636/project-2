@@ -39,6 +39,11 @@ User.init(
         len: [8],
       },
     },
+    profilePic: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "https://via.placeholder.com/150"
+    },
   },
   {
     hooks: {
