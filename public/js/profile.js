@@ -40,8 +40,9 @@ formData.append('bio', bio);
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
+      console.log(id);
   
-      const response = await fetch(`/api/s/${id}`, {
+      const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
       });
   
@@ -57,13 +58,14 @@ formData.append('bio', bio);
     .querySelector('#profile-form')
     .addEventListener('submit', newFormHandler);
   
-  // document
-  //   .querySelector('.-list')
-  //   .addEventListener('click', delButtonHandler);
+   document
+   .querySelectorAll('.delete-post-btn')
+   .forEach(button => button.addEventListener('click', delButtonHandler))
+    
 
-  const exampleModal = document.getElementById('exampleModal')
-  if (exampleModal) {
-    exampleModal.addEventListener('show.bs.modal', event => {
+  const editProfileModal = document.getElementById('editProfileModal')
+  if (editProfileModal) {
+    editProfileModal.addEventListener('show.bs.modal', event => {
       const button = event.relatedTarget
     })
   }

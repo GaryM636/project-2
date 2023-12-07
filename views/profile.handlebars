@@ -15,19 +15,22 @@
     </div>
   </div>
 
-  <div class="container  mt-4 d-flex justify-content-between">
+  <div class="container  mt-4 d-flex justify-content-between" >
     {{!-- The card container for each of the users post --}}
     <div class="d-flex flex-column flex-md-fill">
       {{#each posts}}
       <div>
+        <a class="postHover"href="/posts/{{id}}">
         <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
           <div class="card-body text-light" id="posts">
-            <h5 class="card-header border-bottom text-center">{{subject}}</h5>
+            <h5 class="card-header text-center">{{subject}}</h5>
             <p class="card-text">{{description}}</p>
-            <p class="card-footer border-top text-end"><small class="text-light">{{format_date date_created}}</small>
+            <p class="card-footer text-end"><small class="text-light">{{format_date date_created}}</small>
             </p>
+            <button data-id="{{id}}" class="btn delete-post-btn bg-transparent text-light">delete</button>
           </div>
         </div>
+        </a>
       </div>
       {{/each}}
     </div>
@@ -42,13 +45,13 @@
         <p class="card-text">{{bio}}</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" id="lists">Cras justo odio</li>
-        <li class="list-group-item" id="lists">Dapibus ac facilisis in</li>
-        <li class="list-group-item" id="lists">Vestibulum at eros</li>
+       <li class="list-group-item" id="lists">Console of Choice:</li>
+        <li class="list-group-item" id="lists">Favorite Game:</li>
+        <li class="list-group-item" id="lists">Currently Playing:</li>
       </ul>
       <div class="card-body">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editProfileModal">
           Edit Profile
         </button>
       </div>
@@ -57,7 +60,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">

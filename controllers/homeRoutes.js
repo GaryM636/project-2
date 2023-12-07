@@ -99,9 +99,9 @@ router.get('/users/:id', async (req, res) => {
 //route to get single post with comments
 router.get('/posts/:post_id', withAuth, async (req, res) => {
   try {
-    const postId = req.params.post_id;
+    let postId = req.params.post_id;
 
-    const post = await Posts.findOne({
+    let post = await Posts.findOne({
       where: {
         id: postId
       }
@@ -110,7 +110,7 @@ router.get('/posts/:post_id', withAuth, async (req, res) => {
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
-    const comments = [];
+    let comments = [];
     try {
       comments = await Comments.findAll({
         where: {
@@ -124,7 +124,7 @@ router.get('/posts/:post_id', withAuth, async (req, res) => {
       post: post.get({ plain: true }),
       comments: comments.map(c => c.get({ plain: true })),
       logged_in: req.session.logged_in,
-      userName: req.session.userName,
+      user_name: req.session.userName,
     });
   } catch (err) {
     console.log(err.message);
