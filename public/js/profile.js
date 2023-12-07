@@ -60,4 +60,3 @@ formData.append('bio', bio);
   // document
   //   .querySelector('.-list')
   //   .addEventListener('click', delButtonHandler);
-  
