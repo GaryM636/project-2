@@ -22,20 +22,20 @@
     <div class="container">
         {{#each posts }}
         <div id="post-container">
-            <a class="text-decoration-none" href="/users/{{user.id}}">
-                <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
-                    <div class="card-body text-light" id="posts">
-                        <a href="/posts/{{id}}">
-                            <h5 class="card-header border-bottom text-center text-link">{{subject}}</h5>
-                        </a>
-                        <p class="card-text">{{description}}</p>
-                        <p class="card-footer border-top text-end"><small class="text-light">
-                                {{user.name}}
-                                {{format_date date_created}}</small>
-                        </p>
+            <div>
+                <a class="postHover" href="/posts/{{id}}">
+                    <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
+                        <div class="card-body" id="posts">
+                            <h5 class="card-header text-center text-light">{{subject}}</h5>
+                            <p class="card-text text-light">{{description}}</p>
+                            <p class="card-footer text-end"><small class="text-light">
+                                    <a class="postHover link-light text-decoration-underline" href="/users/{{user.id}}">{{user.name}}</a>
+                                    {{format_date date_created}}</small>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
         {{/each}}
     </div>
