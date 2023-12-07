@@ -60,4 +60,10 @@ formData.append('bio', bio);
   // document
   //   .querySelector('.-list')
   //   .addEventListener('click', delButtonHandler);
-  
+
+  const exampleModal = document.getElementById('exampleModal')
+  if (exampleModal) {
+    exampleModal.addEventListener('show.bs.modal', event => {
+      const button = event.relatedTarget
+    })
+  }

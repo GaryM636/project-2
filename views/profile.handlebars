@@ -47,24 +47,46 @@
         <li class="list-group-item" id="lists">Vestibulum at eros</li>
       </ul>
       <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Edit Profile
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-<form id="profile-form">
-  <input type="hidden" value="{{id}}" id="user-id">
-  <div enctype="multipart/form-data" >
-       <label for="img-up">Upload image here:</label>
-        <input type="file" id="profile-pic" name="filename" accept="image/*">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="" id="">Edit Profile</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div>
-        <label for="bio">Bio:</label>
-        <input type="text" id="bio" name="bio">
+      <div class="modal-body">
+        <form id="profile-form">
+          <input type="hidden" value="{{id}}" id="user-id">
+          <div id="form-upper">
+            <div enctype="multipart/form-data">
+              <label for="img-up">Upload image here:</label>
+              <input type="file" id="profile-pic" class="form-control" name="filename" accept="image/*">
+            </div>
+          </div>
+          <div id="form-lower" class="form">
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" rows="5" cols="60" class="form-control"></textarea>
+          </div>
+
       </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <script src="/js/profile.js"></script>
