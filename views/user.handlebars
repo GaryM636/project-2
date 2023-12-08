@@ -19,15 +19,15 @@
     <div class="d-flex flex-column flex-md-fill">
       {{#each posts}}
       <div>
-        <a class="postHover" href="/posts/{{id}}">
-        <div class="card mb-3 mt-4 postLink userPost" id="posts" style="background-color:#1c1726;">
-          <div class="card-body text-light" id="posts">
-            <h5 class="card-header text-center">{{subject}}</h5>
-            <p class="card-text">{{description}}</p>
-            <p class="card-footer text-end"><small class="text-light">{{format_date date_created}}</small>
-            </p>
+        <a href="/games/{{id}}">
+          <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
+            <div class="card-body text-light" id="posts">
+              <h5 class="card-header border-bottom text-center">{{subject}}</h5>
+              <p class="card-text">{{description}}</p>
+              <p class="card-footer border-top text-end"><small class="text-light">{{format_date date_created}}</small>
+              </p>
+            </div>
           </div>
-        </div>
         </a>
       </div>
       {{/each}}

@@ -2,16 +2,19 @@
     {
         "subject": "xbox games",
         "description": "The lack of good games",
-        "game_id": 1
+        "game_id": 1,
+        "comment_id": 1
     },
     {
         "subject": "new mario",
         "description": "I heard it was really good",
-        "game_id": 2
+        "game_id": 2,
+        "comment_id": 2
     },
     {
         "subject": "halo speed runners",
         "description": "get a life please",
-        "game_id": 3
+        "game_id": 3,
+        "comment_id": 3
     }
 ]
