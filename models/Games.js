@@ -26,7 +26,7 @@ Games.init(
         popularity: {
             type: DataTypes.INTEGER,
             allowNull: false,
-        },
+        }
     },
     {
         sequelize,

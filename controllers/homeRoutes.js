@@ -63,7 +63,6 @@ router.get('/games/:id', async (req, res) => {
       }]
     })
     const game = gameData.get({ plain: true });
-    console.log("looking-for-comments", game);
     res.render('singleGame', {
       ...game,
       logged_in: req.session.logged_in,
@@ -91,7 +90,6 @@ router.get('/users/:id', async (req, res) => {
       ...user,
       logged_in: req.session.logged_in,
       user_name: req.session.userName,
-      profilePic: user.profilePic.toString('base64'),
     })
   } catch (err) {
     console.log(err);
@@ -104,11 +102,10 @@ router.get('/community', async (req, res) => {
   try {
     const postData = await Posts.findAll({
       include: [{
-        model: User,
+        model: User, 
       }]
     });
     const posts = postData.map(p => p.get({ plain: true }));
-    console.log("posts", posts);
     res.render('community', {
       posts,
       logged_in: req.session.logged_in,
