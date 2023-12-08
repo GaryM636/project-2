@@ -15,7 +15,6 @@
 
 body {
     background: radial-gradient(#8879a5, #54376f);
-    height: 2000px
 }
 
 .card {
@@ -63,21 +62,6 @@ body {
     color: var(--text);
 }
 
-@media all and (min-width: 992px) {
-    .navbar .nav-item .dropdown-menu {
-        display: none;
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        display: block;
-    }
-
-    .navbar .nav-item .dropdown-menu {
-        margin-top: 0;
-    }
-}
-
-
 .image {
     width: 80px;
     height: 60px;
@@ -90,4 +74,22 @@ body {
 
 .postHover{
     text-decoration: none;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+@media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+
+    .navbar .nav-item .dropdown-menu {
+        margin-top: 0;
+    }
 }

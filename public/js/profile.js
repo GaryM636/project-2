@@ -62,4 +62,10 @@ formData.append('bio', bio);
    .querySelectorAll('.delete-post-btn')
    .forEach(button => button.addEventListener('click', delButtonHandler))
     
-  
+
+  const editProfileModal = document.getElementById('editProfileModal')
+  if (editProfileModal) {
+    editProfileModal.addEventListener('show.bs.modal', event => {
+      const button = event.relatedTarget
+    })
+  }

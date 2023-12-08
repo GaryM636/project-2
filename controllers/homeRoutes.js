@@ -96,6 +96,28 @@ router.get('/users/:id', async (req, res) => {
   }
 });
 
+//route to get all posts for community page
+
+router.get('/community', async (req, res) => {
+  try {
+    const postData = await Posts.findAll({
+      include: [{
+        model: User,
+      }]
+    });
+    const posts = postData.map(p => p.get({ plain: true }));
+    console.log("posts", posts);
+    res.render('community', {
+      posts,
+      logged_in: req.session.logged_in,
+      user_name: req.session.userName,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 //route to get single post with comments
 router.get('/posts/:post_id', withAuth, async (req, res) => {
   try {
@@ -124,7 +146,7 @@ router.get('/posts/:post_id', withAuth, async (req, res) => {
       post: post.get({ plain: true }),
       comments: comments.map(c => c.get({ plain: true })),
       logged_in: req.session.logged_in,
-      userName: req.session.userName,
+      user_name: req.session.userName,
     });
   } catch (err) {
     console.log(err.message);
