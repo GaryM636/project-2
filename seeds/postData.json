@@ -10,13 +10,69 @@
         "game_id": 1
     },
     {
+        "subject": "24/7 game modes",
+        "description": "Playing on the shipment map is absolutely INSANE! I have never got my weapons to this fast before. Although it has some moments where the game does freeze but it makes sense when everyone is using their kill streaks in the smallest map ever lol.",
+        "game_id": 1
+    },
+    {
+        "subject": "use an actual weapon!",
+        "description": "some of you people need to learn how to use something other than a riot shield.",
+        "game_id": 1
+    },
+    {
+        "subject": "new look on Zombies",
+        "description": "this version is like GTA V without the wanted stars",
+        "game_id": 1
+    },
+    {
+        "subject": "RUST IS BACK",
+        "description": "One of my favorite maps of all time was Rust and im so glad they brought it back. Although they changed the name to Rustment and added a new 24/7 mode it still reminds me of the good ol days!",
+        "game_id": 1
+    },
+    {
         "subject": "new mario",
         "description": "I heard it was really good",
         "game_id": 2
     },
     {
+        "subject": "such a classic",
+        "description": "I don't think i've played a mario game I didn't like",
+        "game_id": 2
+    },
+    {
+        "subject": "amazing for the kids",
+        "description": "As an old man, it's honestly a good feeling knowing my children can play a game series that was around when I was their age. Certainly a good way to start a family game night.",
+        "game_id": 2
+    },
+    {
+        "subject": "gameplay",
+        "description": "one thing about this series is there will always be soemthing new",
+        "game_id": 2
+    },
+
+    {
         "subject": "halo speed runners",
         "description": "get a life please",
+        "game_id": 3
+    },
+    {
+        "subject": "don't know about this one",
+        "description": "I have mixed reviews, but honestly might have had more expectations about this.",
+        "game_id": 3
+    },
+    {
+        "subject": "lots of glitch",
+        "description": "I can't be the only one annoyed with the connectivity issues?",
+        "game_id": 3
+    },
+    {
+        "subject": "prices",
+        "description": "Don't understand why they keep increasing these prices but do nothing to fix the slow connection speed",
+        "game_id": 3
+    },
+    {
+        "subject": "HALO IS BACK!!",
+        "description": "Been playing Halo for YEARS and I honestly think it just keeps getting better. I have seen all the negative reviews but I am thankful it's working out for me!",
         "game_id": 3
     },
     {
@@ -25,8 +81,48 @@
         "game_id": 4
     },
     {
+        "subject": "the more you know",
+        "description": "ok so this is the first time I have ever played Zelda and I now understand that Link is the guy and Zelda is the Princess. You learn something new everyday, LOL.",
+        "game_id": 4
+    },
+    {
+        "subject": "Nintendo",
+        "description": "playing on my nintendo switch is so much fun.",
+        "game_id": 4
+    },
+    {
+        "subject": "That story line!!!!!",
+        "description": "THIS HAS TO BE THE BEST STORY LINE EVER! THE CREDITS MADE ME CRY SO BAD",
+        "game_id": 4
+    },
+    {
+        "subject": "Map",
+        "description": "The best part about this game is the explorable map. You do need to complete challenges to access certain parts of the map but trust me when I say it's worth it!",
+        "game_id": 4
+    },
+    {
         "subject": "Game play",
         "description": "everything runs smooth and graphics are insane",
+        "game_id": 5
+    },
+    {
+        "subject": "open world",
+        "description": "there are so many side quests for this game. I am determined to finish every single one before I finish the main mission.",
+        "game_id": 5
+    },
+    {
+        "subject": "mixed reviews",
+        "description": "ok so the story line is actually good BUT the game runs HORRIBLY. It's taking me so long to finish because of how much it keeps crashing.",
+        "game_id": 5
+    },
+    {
+        "subject": "WHY JUST WHY",
+        "description": "I don't understand how im part of the group of people that has had a awful time running this game",
+        "game_id": 5
+    },
+    {
+        "subject": "worth it ?",
+        "description": "the gameplay looks so cool but all these negative reviews about how the game runs is making me not want to play at all. I rather watch someone else play and struggle with it",
         "game_id": 5
     }
     

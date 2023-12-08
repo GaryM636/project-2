@@ -1,31 +1,41 @@
-# project-2
-# project-2
+# HAZE 
 
-This is the README file for project-2.
+* For this project we worked as a group to create a full stack app that allows users to interact with one another about the games they are playing.
 
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Installation](#installation)
+- [Technologies](#technologies)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
 
-[Add a brief introduction to your project here.]
+full stack application that allows users to make blog posts, create a profile, log in, sign up, and view profiles.
 
-## Installation
 
-[Provide instructions on how to install and set up your project.]
+## Technologies
+* MYSQL
+* EXPRESS
+* NODE.JS
+* .JSON
+* BOOTSTRAP
+* HANDLEBARS
+* MULTER
+* SEQUELIZE
+* SHARP.JS
+
 
 ## Usage
 
-[Explain how to use your project and provide examples.]
+* users can create a profile and post their thoughts on the latest games
+* users can edit account
+* users can opt out on creating a profile and view posts only
+* users can comment on other posts
+* community page allows users to view what others are discussing
 
-## Contributing
 
-[Specify how others can contribute to your project.]
 
 ## License
 
