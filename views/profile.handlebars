@@ -20,12 +20,12 @@
     <div class="d-flex flex-column flex-md-fill">
       {{#each posts}}
       <div>
-        <a href="/games/{{id}}">
+        <a class="text-decoration-none" href="/games/{{id}}">
           <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
             <div class="card-body text-light" id="posts">
-              <h5 class="card-header border-bottom text-center">{{subject}}</h5>
+              <h5 class="card-header text-center">{{subject}}</h5>
               <p class="card-text">{{description}}</p>
-              <p class="card-footer border-top text-end"><small class="text-light">{{format_date date_created}}</small>
+              <p class="card-footer text-end"><small class="text-light">{{format_date date_created}}</small>
               </p>
             </div>
           </div>
@@ -58,20 +58,6 @@
   </div>
 </div>
 
-<<<<<<< HEAD
-<form id="profile-form">
-  <input type="hidden" value="{{id}}" id="user-id">
-  <div enctype="multipart/form-data">
-    <label for="img-up">Upload image here:</label>
-    <input type="file" id="profile-pic" name="filename" accept="image/*">
-  </div>
-  <div>
-    <label for="bio">Bio:</label>
-    <input type="text" id="bio" name="bio">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-=======
 <!-- Modal -->
 <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -114,6 +100,5 @@
 </div>
 
 
->>>>>>> main
 
 <script src="/js/profile.js"></script>

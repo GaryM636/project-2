@@ -19,12 +19,12 @@
     <div class="d-flex flex-column flex-md-fill">
       {{#each posts}}
       <div>
-        <a href="/games/{{id}}">
+        <a class="text-decoration-none" href="/games/{{id}}">
           <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
             <div class="card-body text-light" id="posts">
-              <h5 class="card-header border-bottom text-center">{{subject}}</h5>
+              <h5 class="card-header text-center">{{subject}}</h5>
               <p class="card-text">{{description}}</p>
-              <p class="card-footer border-top text-end"><small class="text-light">{{format_date date_created}}</small>
+              <p class="card-footer text-end"><small class="text-light">{{format_date date_created}}</small>
               </p>
             </div>
           </div>
