@@ -127,6 +127,9 @@ router.get('/posts/:post_id', withAuth, async (req, res) => {
     
 
     let post = await Posts.findOne({
+      include: [{
+        model: User,
+      }],
       where: {
         id: postId,
       }

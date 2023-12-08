@@ -22,6 +22,10 @@ body {
     margin-right: 20px;
 }
 
+.userPost {
+    max-width: 900px;
+}
+
 #posts:hover {
     border-width: 2px;
     border-color: var(--outline);
@@ -34,6 +38,8 @@ body {
 #aside {
     margin-top: 25px;
     background: var(--bg-el);
+    position: fixed end;
+    max-height: 550px;
 }
 
 #lists {
@@ -72,7 +78,7 @@ body {
     margin-right: 60px;
 }
 
-.postHover{
+.postHover {
     text-decoration: none;
 }
 
@@ -91,5 +97,23 @@ footer {
 
     .navbar .nav-item .dropdown-menu {
         margin-top: 0;
+    }
+}
+
+@media all and (max-width: 767px) {
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    #aside {
+        margin: auto;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .card {
+        margin:auto;
     }
 }
