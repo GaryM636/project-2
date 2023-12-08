@@ -63,7 +63,6 @@ router.get('/games/:id', async (req, res) => {
       }]
     })
     const game = gameData.get({ plain: true });
-    console.log("looking-for-comments", game);
     res.render('singleGame', {
       ...game,
       logged_in: req.session.logged_in,
@@ -108,7 +107,6 @@ router.get('/community', async (req, res) => {
       }]
     });
     const posts = postData.map(p => p.get({ plain: true }));
-    console.log("posts", posts);
     res.render('community', {
       posts,
       logged_in: req.session.logged_in,
