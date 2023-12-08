@@ -12,11 +12,11 @@ Posts.init(
       autoIncrement: true,
     },
     subject: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(200),
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(),
       allowNull: false,
     },
     date_created: {

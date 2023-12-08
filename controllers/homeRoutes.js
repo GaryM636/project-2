@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Comments, Posts, User, Games } = require('../models');
+const multer  = require('multer');
 
 // Renders the homepage with a banner for each game in the seeds or created
 router.get('/', async (req, res) => {
@@ -90,10 +91,32 @@ router.get('/users/:id', async (req, res) => {
       ...user,
       logged_in: req.session.logged_in,
       user_name: req.session.userName,
+      profilePic: user.profilePic.toString('base64'),
     })
   } catch (err) {
     console.log(err);
     res.status(500).json(err.message);
+  }
+});
+
+//route to get all posts for community page
+router.get('/community', async (req, res) => {
+  try {
+    const postData = await Posts.findAll({
+      include: [{
+        model: User,
+      }]
+    });
+    const posts = postData.map(p => p.get({ plain: true }));
+    console.log("posts", posts);
+    res.render('community', {
+      posts,
+      logged_in: req.session.logged_in,
+      user_name: req.session.userName,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
