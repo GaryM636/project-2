@@ -48,6 +48,21 @@ User.init(
         type: DataTypes.STRING,
         allowNull: true,
     },
+    console: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: "Who knows?",
+    },
+    favorite: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: "Im not sure yet",
+    },
+    current: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: "I don't recall",
+    },
   },
   {
     hooks: {

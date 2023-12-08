@@ -15,21 +15,21 @@
     </div>
   </div>
 
-  <div class="container  mt-4 d-flex justify-content-between" >
+  <div class="container  mt-4 d-flex justify-content-between">
     {{!-- The card container for each of the users post --}}
     <div class="d-flex flex-column flex-md-fill">
       {{#each posts}}
       <div>
-        <a class="postHover"href="/posts/{{id}}">
-        <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
-          <div class="card-body text-light" id="posts">
-            <h5 class="card-header text-center">{{subject}}</h5>
-            <p class="card-text">{{description}}</p>
-            <p class="card-footer text-end"><small class="text-light">{{format_date date_created}}</small>
-            </p>
-            <button data-id="{{id}}" class="btn delete-post-btn bg-transparent text-light">delete</button>
+        <a class="postHover" href="/posts/{{id}}">
+          <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
+            <div class="card-body text-light" id="posts">
+              <h5 class="card-header text-center">{{subject}}</h5>
+              <p class="card-text">{{description}}</p>
+              <p class="card-footer text-end"><small class="text-light">{{format_date date_created}}</small>
+              </p>
+              <button data-id="{{id}}" class="btn delete-post-btn bg-transparent text-light">delete</button>
+            </div>
           </div>
-        </div>
         </a>
       </div>
       {{/each}}
@@ -45,9 +45,9 @@
         <p class="card-text">{{bio}}</p>
       </div>
       <ul class="list-group list-group-flush">
-       <li class="list-group-item" id="lists">Console of Choice:</li>
-        <li class="list-group-item" id="lists">Favorite Game:</li>
-        <li class="list-group-item" id="lists">Currently Playing:</li>
+        <li class="list-group-item" id="lists">Console of Choice: {{console}} </li>
+        <li class="list-group-item" id="lists">Favorite Game: {{favorite}} </li>
+        <li class="list-group-item" id="lists">Currently Playing: {{current}} </li>
       </ul>
       <div class="card-body">
         <!-- Button trigger modal -->
@@ -80,10 +80,20 @@
             <label for="bio">Bio:</label>
             <textarea id="bio" name="bio" rows="5" cols="60" class="form-control"></textarea>
           </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-secondary">Submit</button>
+          <br>
+          <div id="form-lower" class="form">
+            <label for="console">Console of Choice:</label>
+            <input type="text" id="console" name="console" class="form-control">
+            <div>
+              <label for="favorite">Favorite Game:</label>
+              <input type="text" id="favorite" name="favorite" class="form-control">
+            </div>
+            <div>
+              <label for="current">Currently Playing:</label>
+              <input type="text" id="current" name="current" class="form-control">
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-secondary">Save</button>
         </form>
       </div>
     </div>
