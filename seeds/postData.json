@@ -5,6 +5,11 @@
         "game_id": 1
     },
     {
+        "subject": "zombies",
+        "description": "free roam and scavenging is the best part",
+        "game_id": 1
+    },
+    {
         "subject": "new mario",
         "description": "I heard it was really good",
         "game_id": 2
@@ -13,5 +18,16 @@
         "subject": "halo speed runners",
         "description": "get a life please",
         "game_id": 3
+    },
+    {
+        "subject": "Zelda nights",
+        "description": "if your weapons break use a stick and hope for the best!",
+        "game_id": 4
+    },
+    {
+        "subject": "Game play",
+        "description": "everything runs smooth and graphics are insane",
+        "game_id": 5
     }
+    
 ]
