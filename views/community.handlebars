@@ -1,15 +1,29 @@
-{{! Renders the community page with different users posts for all seed games --}}
-
-
 <div class="bgdrop">
-    <div class"container d-flex justify-content-center mb-5">
-        <div class="row">
-            <div class="col-12">
-               <h1 class="fw-bold fs-1 text-light">{{game_title}}</h1> 
+    <div class="container tbox mb-3">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-6">
+                <h2 class="text-center text-light">Haze Community</h2>
             </div>
         </div>
     </div>
+<div class="container">
+        {{#each posts }}
+        <div id="post-container">
+            <div>
+                <a class="postHover" href="/posts/{{id}}">
+                    <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
+                        <div class="card-body" id="posts">
+                            <h5 class="card-header text-center text-light">{{subject}}</h5>
+                            <p class="card-text text-light">{{description}}</p>
+                            <p class="card-footer text-end"><small class="text-light">
+                                    <a class="postHover link-light text-decoration-underline" href="/users/{{user.id}}">{{user.name}}</a>
+                                    {{format_date date_created}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
 </div>
-
-
-

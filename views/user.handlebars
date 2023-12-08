@@ -33,19 +33,21 @@
       {{/each}}
     </div>
     <div class="card d-flex text-light" id="aside" style="width: 18rem;">
-      <img class="card-img-top" src="" alt="Card image cap">
+      {{#if profilePic}}
+      <img class="card-img-top" src="data:image/png;base64,{{profilePic}}" alt="profile">
+      {{else}}
+      <img class="card-img-top" src="https://via.placeholder.com/150" alt="default-profile-pic">
+      {{/if}}
       <div class="card-body">
         <h5 class="card-title">{{userName}}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
+        <p class="card-text">{{bio}}</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" id="lists">Console of choice:</li>
-        <li class="list-group-item" id="lists">Favorite Game:</li>
-        <li class="list-group-item" id="lists">Currently Playing:</li>
+       <li class="list-group-item" id="lists">Console of Choice: {{console}} </li>
+        <li class="list-group-item" id="lists">Favorite Game: {{favorite}} </li>
+        <li class="list-group-item" id="lists">Currently Playing: {{current}} </li>
       </ul>
       <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
       </div>
     </div>
   </div>
