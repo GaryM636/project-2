@@ -6,17 +6,18 @@
             </div>
         </div>
     </div>
-<div class="container">
+    <div class="container">
         {{#each posts }}
         <div id="post-container">
             <div>
-                <a class="postHover" href="/games/{{id}}">
+                <a class="postHover" href="/games/{{game_id}}">
                     <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
                         <div class="card-body" id="posts">
                             <h5 class="card-header text-center text-light">{{subject}}</h5>
                             <p class="card-text text-light">{{description}}</p>
                             <p class="card-footer text-end"><small class="text-light">
-                                    <a class="postHover link-light text-decoration-underline" href="/users/{{user.id}}">{{user.name}}</a>
+                                    <a class="postHover link-light text-decoration-underline"
+                                        href="/users/{{user.id}}">{{user.name}}</a>
                                     {{format_date date_created}}</small>
                             </p>
                         </div>
@@ -26,4 +27,10 @@
         </div>
         {{/each}}
     </div>
+   
 </div>
+
+
+
+
+
