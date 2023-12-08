@@ -28,17 +28,18 @@
                     <h5 class="card-header text-center text-link">{{subject}}</h5>
                     <p class="card-text">{{description}}</p>
                     <p class="card-footer text-end"><small class="text-light">
-                            <a class="postHover link-light text-decoration-underline" href="/users/{{user.id}}">{{user.userName}}</a>
+                            <a class="postHover link-light text-decoration-underline"
+                                href="/users/{{user.id}}">{{user.userName}}</a>
                             {{format_date date_created}}</small>
                     </p>
                 </div>
             </div>
             {{!-- Start of the comments container part of the post --}}
-            <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
+            <div class="card mb-3 mt-4" id="posts" style="background-color:#2e2942a1;">
                 <h2 class="px-1 text-light text-center">Comments</h2>
 
                 {{#each comments}}
-                <div class="card mb-3 mt-4" id="comments" style="background-color:#1c1726;">
+                <div class="card mb-3 mt-4" id="comments" style="background-color:#29213a;">
                     <div class="card-body text-light">
                         <p class="card-header text-center">{{comment}}</p>
                         <p class="card-footer text-end"><small class="text-light">
@@ -69,26 +70,27 @@
         {{!-- The add new post button will be here so it is located at the bottom of the page after the last post made
         each
         time --}}
-        <div class="dropdown">
-            {{#if logged_in}}
-            <form id="addPost">
-                <input type="hidden" value="{{id}}" id="gameId">
-                <button id="post-btn" class="btn btn-secondary dropdown-toggle" type="submit" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Add a new post
-                </button>
-                <ul class="w-100 dropdown-menu">
-                    <input id="postSubject" type="text" class="form-control" placeholder="Subject">
-                    <input id="postDescription" type="text" class="form-control" placeholder="Description">
-                    <button id="post-btn" type="submit" class="btn btn-outline-light">Add New Post</button>
-                </ul>
-                {{else}}
-                <h5 id="info" class="text-center text-light">Want to join the discussion?</h5>
-                <p class="text-center text-light">You must be logged in to post</p>
-                {{/if}}
-            </form>
+        <div class="card mb-3 mt-4" id="posts" style="background-color:#181726;">
+            <div class="dropdown m-3">
+                {{#if logged_in}}
+                <form id="addPost">
+                    <input type="hidden" value="{{id}}" id="gameId">
+                    <button id="post-btn" class="btn btn-outline-light dropdown-toggle" type="submit"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Add a new post
+                    </button>
+                    <ul class="w-100 dropdown-menu">
+                        <input id="postSubject" type="text" class="form-control" placeholder="Subject">
+                        <input id="postDescription" type="text" class="form-control" placeholder="Description">
+                        <button id="post-btn" type="submit" class="btn btn-outline-light">Add New Post</button>
+                    </ul>
+                    {{else}}
+                    <h5 id="info" class="text-center text-light">Want to join the discussion?</h5>
+                    <p class="text-center text-light">You must be logged in to post</p>
+                    {{/if}}
+                </form>
+            </div>
         </div>
-
 
         <script src="/js/newPostBtn.js"></script>
         <script src="/js/newCommentBtn.js"></script>
