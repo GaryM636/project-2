@@ -23,17 +23,16 @@ Comments.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'id',
-        onDelete: 'SET NULL',
+        key: 'id'
       },
     },
     post_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'post',
-        key: 'id',
+        key: 'id'
       },
-    },
+    }
   },
   {
     sequelize,

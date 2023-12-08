@@ -11,7 +11,6 @@ router.get('/', async (req, res) => {
       }
     });
     const games = gameData.map(p => p.get({ plain: true }));
-    console.log("games", games);
     res.render('homepage', {
       games,
       logged_in: req.session.logged_in,
@@ -43,7 +42,6 @@ router.get('/profile', withAuth, async (req, res) => {
     if (user.profilePic) {
       user.profilePic = user.profilePic.toString('base64');
     }
-    console.log("user", user);
     res.render('profile', {
       ...user,
       logged_in: req.session.logged_in,
@@ -60,10 +58,11 @@ router.get('/games/:id', async (req, res) => {
   try {
     const gameData = await Games.findByPk(req.params.id, {
       include: [{
-        model: Posts, include: [User]
+        model: Posts, include: [{model: User}, {model: Comments}]
       }]
     })
     const game = gameData.get({ plain: true });
+    console.log("looking-for-comments", game);
     res.render('singleGame', {
       ...game,
       logged_in: req.session.logged_in,
@@ -84,7 +83,9 @@ router.get('/users/:id', async (req, res) => {
       },
     });
     const user = userData.get({ plain: true })
-    console.log("user-data", user);
+    if (user.profilePic) {
+      user.profilePic = user.profilePic.toString('base64');
+    };
     res.render('user', {
       ...user,
       logged_in: req.session.logged_in,
@@ -95,42 +96,5 @@ router.get('/users/:id', async (req, res) => {
     res.status(500).json(err.message);
   }
 });
-
-//route to get single post with comments
-router.get('/posts/:post_id', withAuth, async (req, res) => {
-  try {
-    const postId = req.params.post_id;
-
-    const post = await Posts.findOne({
-      where: {
-        id: postId
-      }
-    });
-
-    if (!post) {
-      return res.status(404).json({ message: 'Post not found' });
-    }
-    const comments = [];
-    try {
-      comments = await Comments.findAll({
-        where: {
-          post_id: postId
-        }
-      });
-    } catch (err) {
-      console.error('Error fetching comments:', err);
-    }
-    res.render('comments', {
-      post: post.get({ plain: true }),
-      comments: comments.map(c => c.get({ plain: true })),
-      logged_in: req.session.logged_in,
-      userName: req.session.userName,
-    });
-  } catch (err) {
-    console.log(err.message);
-    res.status(500).json(err);
-  }
-});
-
 
 module.exports = router;
