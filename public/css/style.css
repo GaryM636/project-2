@@ -19,11 +19,12 @@ body {
 
 .card {
     border-radius: 0.375rem;
-    margin-right: 20px;
 }
+
 
 .userPost {
     max-width: 900px;
+    margin-right: 20px;
 }
 
 #posts:hover {
