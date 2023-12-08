@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Comments, Posts, User, Games } = require('../models');
+const multer  = require('multer');
 
 // Renders the homepage with a banner for each game in the seeds or created
 router.get('/', async (req, res) => {
@@ -89,6 +90,7 @@ router.get('/users/:id', async (req, res) => {
       ...user,
       logged_in: req.session.logged_in,
       user_name: req.session.userName,
+      profilePic: user.profilePic.toString('base64'),
     })
   } catch (err) {
     console.log(err);
@@ -122,13 +124,14 @@ router.get('/community', async (req, res) => {
 router.get('/posts/:post_id', withAuth, async (req, res) => {
   try {
     let postId = req.params.post_id;
+    
 
     let post = await Posts.findOne({
       include: [{
         model: User,
       }],
       where: {
-        id: postId
+        id: postId,
       }
     });
 
