@@ -1,14 +1,17 @@
 [
 {
-    "description": "at least they aren't playstation",
-    "post_id": 2
+    "comment": "at least they aren't playstation",
+    "game_id": "1",
+    "post_id": "1"
 },
 {
-    "description": "the best game!!!!",
-    "post_id": 1
+    "comment": "the best game!!!!",
+    "game_id": "2",
+    "post_id": "2"
 },
 {
-    "description": "the only life i know is speed",
-    "game_id": 3
+    "comment": "the only life i know is speed",
+    "game_id": "3",
+    "post_id": "3"
 }
 ]

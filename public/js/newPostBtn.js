@@ -6,11 +6,11 @@ addPost.addEventListener('submit', async e => {
     const subject = document.querySelector('#postSubject').value;
     const description = document.querySelector('#postDescription').value;
     const game_id = document.querySelector('#gameId').value;
-    
+
     console.log("subject", subject);
     console.log("description", description);
-    console.log("gameId", game_id);
-
+    console.log("game_id", game_id);
+    
     const res = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({ subject, description, game_id }),

@@ -18,57 +18,80 @@
         </div>
     </div>
 
-    {{!-- This is going to be the card that stores the new post that is created --}}
-    <div class="container">
-        {{#each posts }}
+    {{!-- This is going to be the card that stores the new post that is created. Also is storing the comment container
+    within this div as well --}}
+    {{#each posts }}
+    <div class="container mb-5">
         <div id="post-container">
-            <div>
-                <a class="postHover" href="/posts/{{id}}">
-                    <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
-                        <div class="card-body" id="posts">
-                            <h5 class="card-header text-center text-light">{{subject}}</h5>
-                            <p class="card-text text-light">{{description}}</p>
-                            <p class="card-footer text-end"><small class="text-light">
-                                    <a class="postHover link-light text-decoration-underline" href="/users/{{user.id}}">{{user.name}}</a>
-                                    {{format_date date_created}}</small>
-                            </p>
-                        </div>
+            <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
+                <div class="card-body text-light">
+                    <h5 class="card-header text-center text-link">{{subject}}</h5>
+                    <p class="card-text">{{description}}</p>
+                    <p class="card-footer text-end"><small class="text-light">
+                            <a class="postHover link-light text-decoration-underline"
+                                href="/users/{{user.id}}">{{user.userName}}</a>
+                            {{format_date date_created}}</small>
+                    </p>
+                </div>
+            </div>
+            {{!-- Start of the comments container part of the post --}}
+            <div class="card mb-3 mt-4" id="posts" style="background-color:#2e2942a1;">
+                <h2 class="px-1 text-light text-center">Comments</h2>
+
+                {{#each comments}}
+                <div class="card mb-3 mt-4" id="comments" style="background-color:#29213a;">
+                    <div class="card-body text-light">
+                        <p class="card-header text-center">{{comment}}</p>
+                        <p class="card-footer text-end"><small class="text-light">
+                                {{format_date date_created}}</small>
+                        </p>
                     </div>
-                </a>
+                </div>
+                {{/each}}
+                {{!-- The add comment button starts here at the bottom of the last comment on a post --}}
+                <div class="dropdown">
+                    <form class="add-comment">
+                        <input type="hidden" value="{{id}}" id="postId" name="postId">
+                        <button class="btn btn-outline-light dropdown-toggle m-3" type="submit"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Add a Comment
+                        </button>
+                        <ul class="w-100 dropdown-menu">
+                            <input id="commentInput" type="text" class="form-control" placeholder="Comment"
+                                name="commentInput">
+                            <button id="addComment" type="submit" class="btn btn-outline-light">Comment</button>
+                        </ul>
+                    </form>
+                </div>
             </div>
         </div>
         {{/each}}
+
+        {{!-- The add new post button will be here so it is located at the bottom of the page after the last post made
+        each
+        time --}}
+        <div class="card mb-3 mt-4" id="posts" style="background-color:#181726;">
+            <div class="dropdown m-3">
+                {{#if logged_in}}
+                <form id="addPost">
+                    <input type="hidden" value="{{id}}" id="gameId">
+                    <button id="post-btn" class="btn btn-outline-light dropdown-toggle" type="submit"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Add a new post
+                    </button>
+                    <ul class="w-100 dropdown-menu">
+                        <input id="postSubject" type="text" class="form-control" placeholder="Subject">
+                        <input id="postDescription" type="text" class="form-control" placeholder="Description">
+                        <button id="post-btn" type="submit" class="btn btn-outline-light">Add New Post</button>
+                    </ul>
+                    {{else}}
+                    <h5 id="info" class="text-center text-light">Want to join the discussion?</h5>
+                    <p class="text-center text-light">You must be logged in to post</p>
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+
+        <script src="/js/newPostBtn.js"></script>
+        <script src="/js/newCommentBtn.js"></script>
     </div>
-
-
-
-    {{!-- This allows a signed in user to create a new post under a certain game or topic --}}
-    <div class="card" id="info" style="background-color:#1e153098;">
-        {{#if logged_in}}
-        <form id="addPost" class="form project p-3">
-            <div class="mb-3 text-light">
-                <label for="postSubject" class="form project-form">
-                    New post Subject
-                </label>
-                <input id="postSubject" type="text" class="form-control" placeholder="Subject">
-            </div>
-            <div class="mb-3 text-light">
-                <label for="postDescription" class="form-label">
-                    New Post Description
-                </label>
-                <input id="postDescription" type="text" class="form-control" placeholder="Description">
-            </div>
-            <div>
-                <input type="hidden" value="{{id}}" id="gameId">
-                <button id="post-btn" type="submit" class="btn btn-outline-light">Add New Post</button>
-            </div>
-        </form>
-        {{else}}
-        <h5 id="info" class="text-center text-light">Want to join the discussion?</h5>
-        <p class="text-center text-light">You must be logged in to post</p>
-        {{/if}}
-    </div>
-
-
-    <script src="/js/newPostBtn.js"></script>
-</div>
