@@ -19,7 +19,7 @@
     {{!-- The card container for each of the users post --}}
     <div class="d-flex flex-column flex-md-fill">
       {{#each posts}}
-      <div>
+      <div class="userPost">
         <a class="text-decoration-none" href="/games/{{game_id}}">
           <div class="card mb-3 mt-4" id="posts" style="background-color:#1c1726;">
             <div class="card-body text-light">
@@ -51,7 +51,7 @@
       </ul>
       <div class="card-body">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+        <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#editProfileModal">
           Edit Profile
         </button>
       </div>
