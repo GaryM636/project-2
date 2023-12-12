@@ -48,4 +48,4 @@ full stack application that allows users to make blog posts, create a profile, l
 
 ## License
 
-[Choose an appropriate license for your project and include it here.]
+MIT License
