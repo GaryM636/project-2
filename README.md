@@ -35,6 +35,15 @@ full stack application that allows users to make blog posts, create a profile, l
 * users can comment on other posts
 * community page allows users to view what others are discussing
 
+## Preview
+
+![Screenshot 2023-12-07 211205](https://github.com/GaryM636/project-2/assets/141704995/83475f19-c8dd-4461-a104-3951d10c5ca8)
+
+
+## Deployed Application
+
+ https://haze-community-a1679c79f3fa.herokuapp.com/
+
 
 
 ## License
